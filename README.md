@@ -1,25 +1,24 @@
-import numpy as np
+Analisis Data Tingkat Pengangguran Bulanan dengan NumPy
+Proyek ini bertujuan untuk menganalisis data tingkat pengangguran bulanan menggunakan pustaka NumPy dalam bahasa pemrograman Python.
 
+Deskripsi Proyek
+Dalam proyek ini, kami melakukan analisis statistik deskriptif dan tren perubahan pada data tingkat pengangguran bulanan. Data yang digunakan merupakan persentase tingkat pengangguran untuk setiap bulan dalam satu tahun.
+
+Data
+Data yang dianalisis adalah sebagai berikut:
+
+python
+Salin kode
 pengangguran_bulanan = [4.6, 4.9, 5.1, 5.3, 4.7, 5.4, 5.2, 4.8, 5.1, 4.7, 4.9, 5.2]
+Setiap nilai dalam daftar mewakili persentase tingkat pengangguran dari Januari hingga Desember.
 
-# Statistik Deskriptif
-rata_rata = np.mean(pengangguran_bulanan)
-median = np.median(pengangguran_bulanan)
-nilai_terbesar = np.max(pengangguran_bulanan)
-nilai_terkecil = np.min(pengangguran_bulanan)
-bulan_tertinggi = np.argmax(pengangguran_bulanan) + 1  # Menambahkan 1 karena indeks mulai dari 0
-bulan_terendah = np.argmin(pengangguran_bulanan) + 1  # Menambahkan 1 karena indeks mulai dari 0
+Fitur Analisis
+Statistik Deskriptif:
 
-print(f"Rata-rata Tingkat Pengangguran: {rata_rata:.2f}%")
-print(f"Median Tingkat Pengangguran: {median:.2f}%")
-print(f"Tingkat Pengangguran Tertinggi: {nilai_terbesar:.2f}% pada bulan {bulan_tertinggi}")
-print(f"Tingkat Pengangguran Terendah: {nilai_terkecil:.2f}% pada bulan {bulan_terendah}")
+Menghitung rata-rata (mean) tingkat pengangguran.
+Menentukan median tingkat pengangguran.
+Menemukan nilai maksimum dan minimum beserta bulan terjadinya.
+Analisis Tren Bulanan:
 
-# Analisis Tren Bulanan
-laju_perubahan = np.diff(pengangguran_bulanan)
-rata_rata_perubahan = np.mean(laju_perubahan)
-
-if rata_rata_perubahan < 0:
-    print("Terdapat tren penurunan tingkat pengangguran.")
-else:
-    print("Terdapat tren kenaikan tingkat pengangguran.")
+Menghitung laju perubahan tingkat pengangguran antar bulan.
+Menentukan apakah terdapat tren kenaikan atau penurunan tingkat pengangguran secara keseluruhan.
