@@ -1,57 +1,25 @@
-# Simpel-projek-Numpy
-Analisis Data Tingkat Pengangguran Bulanan dengan NumPy
-Proyek ini bertujuan untuk menganalisis data tingkat pengangguran bulanan menggunakan pustaka NumPy dalam bahasa pemrograman Python.
+import numpy as np
 
-Deskripsi Proyek
-Dalam proyek ini, kami melakukan analisis statistik deskriptif dan tren perubahan pada data tingkat pengangguran bulanan. Data yang digunakan merupakan persentase tingkat pengangguran untuk setiap bulan dalam satu tahun.
-
-Data
-Data yang dianalisis adalah sebagai berikut:
-
-python
-Salin kode
 pengangguran_bulanan = [4.6, 4.9, 5.1, 5.3, 4.7, 5.4, 5.2, 4.8, 5.1, 4.7, 4.9, 5.2]
-Setiap nilai dalam daftar mewakili persentase tingkat pengangguran dari Januari hingga Desember.
 
-Fitur Analisis
-Statistik Deskriptif:
+# Statistik Deskriptif
+rata_rata = np.mean(pengangguran_bulanan)
+median = np.median(pengangguran_bulanan)
+nilai_terbesar = np.max(pengangguran_bulanan)
+nilai_terkecil = np.min(pengangguran_bulanan)
+bulan_tertinggi = np.argmax(pengangguran_bulanan) + 1  # Menambahkan 1 karena indeks mulai dari 0
+bulan_terendah = np.argmin(pengangguran_bulanan) + 1  # Menambahkan 1 karena indeks mulai dari 0
 
-Menghitung rata-rata (mean) tingkat pengangguran.
-Menentukan median tingkat pengangguran.
-Menemukan nilai maksimum dan minimum beserta bulan terjadinya.
-Analisis Tren Bulanan:
+print(f"Rata-rata Tingkat Pengangguran: {rata_rata:.2f}%")
+print(f"Median Tingkat Pengangguran: {median:.2f}%")
+print(f"Tingkat Pengangguran Tertinggi: {nilai_terbesar:.2f}% pada bulan {bulan_tertinggi}")
+print(f"Tingkat Pengangguran Terendah: {nilai_terkecil:.2f}% pada bulan {bulan_terendah}")
 
-Menghitung laju perubahan tingkat pengangguran antar bulan.
-Menentukan apakah terdapat tren kenaikan atau penurunan tingkat pengangguran secara keseluruhan.
-Prasyarat
-Pastikan Anda telah menginstal Python dan pustaka NumPy. Jika belum, Anda dapat menginstalnya menggunakan perintah berikut:
+# Analisis Tren Bulanan
+laju_perubahan = np.diff(pengangguran_bulanan)
+rata_rata_perubahan = np.mean(laju_perubahan)
 
-bash
-Salin kode
-pip install numpy
-Cara Penggunaan
-Klon repositori ini:
-
-bash
-Salin kode
-git clone https://github.com/username/repo-name.git
-Masuk ke direktori proyek:
-
-bash
-Salin kode
-cd repo-name
-Jalankan skrip analisis:
-
-bash
-Salin kode
-python analisis_pengangguran.py
-Struktur Proyek
-analisis_pengangguran.py: Skrip utama yang berisi kode untuk melakukan analisis data.
-README.md: Berkas ini, berisi informasi tentang proyek.
-Hasil Analisis
-Setelah menjalankan skrip, Anda akan mendapatkan output berupa:
-
-Rata-rata dan median tingkat pengangguran.
-Tingkat pengangguran tertinggi dan terendah beserta bulan terjadinya.
-Laju perubahan tingkat pengangguran antar bulan.
-Indikasi tren umum tingkat pengangguran (kenaikan atau penurunan).
+if rata_rata_perubahan < 0:
+    print("Terdapat tren penurunan tingkat pengangguran.")
+else:
+    print("Terdapat tren kenaikan tingkat pengangguran.")
